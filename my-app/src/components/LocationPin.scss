@@ -1,0 +1,21 @@
+.locationPin {
+  width: fit-content;
+  padding: 10px;
+  border-radius: 3px;
+  background-color: var(--color-lightestBackground);
+  box-shadow: 0 3px 3px var(--color-boxShadow);
+
+  p {
+    margin: 0;
+  }
+
+  &__text {
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+
+  &__value {
+    color: var(--color-secondary);
+    font-weight: bold;
+  }
+}

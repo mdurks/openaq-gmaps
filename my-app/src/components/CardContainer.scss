@@ -1,0 +1,66 @@
+.sortButtons {
+    background-color: var(--color-lightBackground);
+    padding: 20px 0 10px 20px;
+
+    @media screen and (min-width: 768px) {
+        padding: 50px 0 0 70px;
+    }
+
+    strong {
+        display: block;
+        margin-right: 15px;
+
+        @media screen and (min-width: 768px) {
+            display: inline;
+        }
+    }
+
+    button {
+        margin: 15px 15px 0 0;
+        padding: 10px;
+        cursor: pointer;
+    }
+}
+
+.CardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    background-color: var(--color-lightBackground);
+
+    @media screen and (min-width: 768px) {
+        padding: 30px 50px 50px;
+    }
+
+    &__card {
+        flex: 0 1 calc(50% - 60px);
+        margin: 10px;
+        padding: 20px;
+        background-color: var(--color-lightestBackground);
+        border-radius: 3px;
+        box-shadow: 0 3px 3px var(--color-boxShadow);
+
+        @media screen and (min-width: 768px) {
+            flex: 0 1 calc(25% - 80px);
+            margin: 20px;
+        }
+
+        @media screen and (min-width: 1300px) {
+            flex: 0 1 calc(16% - 71px);
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+
+    &__location {
+        font-weight: bold;
+        color: var(--color-primary);
+    }
+
+    &__amount {
+        font-weight: bold;
+        color: var(--color-secondary);
+    }
+}
