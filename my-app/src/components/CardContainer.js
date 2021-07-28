@@ -5,34 +5,18 @@ const CardContainer = (props) => {
 
     const [data, setData] = useState(props.data);
 
-    const sortByLocation = () => {
+    const sortBy = (key) => {
         setData([...data].sort((a, b) => {
-            if(a.location < b.location) { return -1; }
-            if(a.location > b.location) { return 1; }
+            if(a[key] < b[key]) { return -1; }
+            if(a[key] > b[key]) { return 1; }
             return 0;
         }))
     }
 
-    const sortByAmount = () => {
+    const sortByCoordinates = (key) => {
         setData([...data].sort((a, b) => {
-            if(a.value < b.value) { return -1; }
-            if(a.value > b.value) { return 1; }
-            return 0;
-        }))
-    }
-
-    const sortByLat = () => {
-        setData([...data].sort((a, b) => {
-            if(a.coordinates.latitude < b.coordinates.latitude) { return -1; }
-            if(a.coordinates.latitude > b.coordinates.latitude) { return 1; }
-            return 0;
-        }))
-    }
-
-    const sortByLong = () => {
-        setData([...data].sort((a, b) => {
-            if(a.coordinates.longitude < b.coordinates.longitude) { return -1; }
-            if(a.coordinates.longitude > b.coordinates.longitude) { return 1; }
+            if(a.coordinates[key] < b.coordinates[key]) { return -1; }
+            if(a.coordinates[key] > b.coordinates[key]) { return 1; }
             return 0;
         }))
     }
@@ -42,10 +26,10 @@ const CardContainer = (props) => {
         <>
             <div className="sortButtons">
                 <strong>Sort by:</strong>
-                <button onClick={sortByLocation}>Location</button>
-                <button onClick={sortByAmount}>Amount</button>
-                <button onClick={sortByLat}>Latitude</button>
-                <button onClick={sortByLong}>Longitude</button>
+                <button onClick={() => {sortBy('location')}}>Location</button>
+                <button onClick={() => {sortBy('value')}}>Amount</button>
+                <button onClick={() => {sortByCoordinates('latitude')}}>Latitude</button>
+                <button onClick={() => {sortByCoordinates('longitude')}}>Longitude</button>
             </div>
             <section className="CardContainer">
                 {data.map((item, index) =>
